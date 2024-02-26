@@ -120,12 +120,8 @@ namespace CGL
       }
 
       Vector3D on_v;
-     // for (int i = 0; i < on_u.size() - 1; i++) {
-          on_v = evaluate1D(on_u, v);
-      //}
+      on_v = evaluate1D(on_u, v);
 
-     
-     //Vector3D on_u = evaluate1D(controlPoints.back(), v)
       
     return on_v;
   }
@@ -151,21 +147,43 @@ namespace CGL
     // TODO Part 5.
     // This method should split the given edge and return an iterator to the newly inserted vertex.
     // The halfedge of this vertex should point along the edge that was split, rather than the new edges.
+      // Halfedge e0_half_edge = e0->halfedge()//->getHalfedge();
+      //Vertex new= Vertex();
+      
+       
+      //new_v.position = ;
     return VertexIter();
   }
 
 
 
-  void MeshResampler::upsample( HalfedgeMesh& mesh )
+  void MeshResampler::upsample(HalfedgeMesh& mesh)
   {
-    // TODO Part 6.
-    // This routine should increase the number of triangles in the mesh using Loop subdivision.
-    // One possible solution is to break up the method as listed below.
+      // TODO Part 6.
+      // This routine should increase the number of triangles in the mesh using Loop subdivision.
+      // One possible solution is to break up the method as listed below.
 
-    // 1. Compute new positions for all the vertices in the input mesh, using the Loop subdivision rule,
-    // and store them in Vertex::newPosition. At this point, we also want to mark each vertex as being
-    // a vertex of the original mesh.
+      // 1. Compute new positions for all the vertices in the input mesh, using the Loop subdivision rule,
+      // and store them in Vertex::newPosition. At this point, we also want to mark each vertex as being
+      // a vertex of the original mesh.
+
+      mesh.verticesBegin();
+      /*for (int i = 0; i < verticies; i++) {
+      *     vertice_a = 
+          * vertice_b = 
+          * vertice_c = 
+          * vertice_d = 
+            vertice_new_position = ((3 / 8) * (A + B)) + ((1 / 8) * (C + D))
+        }*/
     
+      //new_vertex upgrade 3 / 8 * (A + B) + 1 / 8 * (C + D)
+       /*for (int i = 0; i < edges; i++) {
+      *    edge.split()
+      * 
+        }*/
+      
+      //old_vertex upgrade (1 - n * u) * original_position + u * original_neighbor_position_sum
+
     // 2. Compute the updated vertex positions associated with edges, and store it in Edge::newPosition.
     
     // 3. Split every edge in the mesh, in any order. For future reference, we're also going to store some
@@ -176,6 +194,8 @@ namespace CGL
     // 4. Flip any new edge that connects an old and new vertex.
 
     // 5. Copy the new vertex positions into final Vertex::position.
+
+
 
   }
 }
